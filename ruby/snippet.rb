@@ -11,3 +11,7 @@ def up_array(arr)
   return nil if arr.empty? || arr.any? { |x| x < 0 || x > 9 }
   arr.join.next.chars.map(&:to_i)
 end
+
+def title_case(title, minor_words = '')
+  title.capitalize.split().map{|a| minor_words.downcase.split().include?(a) ? a : a.capitalize}.join(' ')
+end
