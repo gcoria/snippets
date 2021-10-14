@@ -7,6 +7,13 @@ def is_int_array(arr)
   arr.all? {|e| e % 1.0 == 0} rescue false
 end
 
+def list names
+  names = names.map { |name| name[:name] }
+  last_name = names.pop
+  return last_name.to_s if names.empty?
+  "#{names.join(', ')} & #{last_name}"
+end
+
 def compute_depth n
   h={}
   1.step.find{|x|(?0..?9).all?(&h)||(
