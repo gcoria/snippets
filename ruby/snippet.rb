@@ -7,6 +7,14 @@ def is_int_array(arr)
   arr.all? {|e| e % 1.0 == 0} rescue false
 end
 
+def compute_depth n
+  h={}
+  1.step.find{|x|(?0..?9).all?(&h)||(
+  d=n*x
+  d.to_s.chars.each{|x|h[x]=1}
+  !1)}-1
+end
+
 def up_array(arr)
   return nil if arr.empty? || arr.any? { |x| x < 0 || x > 9 }
   arr.join.next.chars.map(&:to_i)
