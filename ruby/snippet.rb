@@ -34,3 +34,7 @@ end
 def ip_to_int32(ip)
   x = IPAddr.new(ip).to_i
 end
+
+def non_consec_pairs(myarray)
+    myarray.combination(2).to_a - myarray.each_cons(2).to_a
+end
