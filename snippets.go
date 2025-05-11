@@ -50,6 +50,23 @@ func Map[T any, U any](slice []T, f func(T) U) []U {
 	return result
 }
 
+//Pairs DNA chains
+func PairElement(str string) []string {
+	dnaMap := map[string]string{
+		"a": "at",
+		"t": "ta",
+		"g": "gc",
+		"c": "cg",
+	}
+	pairedElements := []string{}
+	for _, char := range strings.Split(str, "") {
+		if val, ok := dnaMap[strings.ToLower(char)]; ok {
+			pairedElements = append(pairedElements, val)
+		}
+	}
+	return pairedElements
+}
+
 func main() {
 	fmt.Println(Same(tree.New(3), tree.New(3)))
 }
